@@ -1,4 +1,5 @@
-; scheme calculator by Miles De Wind - 4/18/2017
+; Created by Miles De Wind - 4/18/2017
+; Simple calculator made in shceme
 ; utilized ideas from GoZoner @ stack overflow for
 ; my arithmatic function
 
@@ -40,13 +41,16 @@
   (display #\newline)
   (display "lines")
   (display #\newline)
-
+  
+  (let ((allAnswers (list)))
   (let loop ((times 0))
       (let ((input (make-list)))
         (cond ((not (equal? input '(end)))
           (let ((val (arithmatic input)))
           (display val)
           (display #\newline)
+          (set! allAnswers (append allAnswers (list val))) 
           (loop (+ times 1))))
-          (else "done")))))
+          (else (display "All Answers:")
+           allAnswers))))))
      
